@@ -1,0 +1,1 @@
+zdns is a Zig wrapper around [ldns](http://www.nlnetlabs.nl/ldns/).
