@@ -9,10 +9,41 @@ pub fn rrFieldNames(type_: ldns.rr_type) []const []const u8 {
     const str = []const u8;
     return switch (type_) {
         .A, .AAAA => &[_]str{"ip"},
-        .CNAME, .NS => &[_]str{"dname"},
-        .MX => &[_]str{ "preference", "exchange" },
+        .AFSDB => &[_]str{ "subtype", "hostname" },
+        .CAA => &[_]str{ "flags", "tag", "value" },
+        .CERT => &[_]str{ "type", "key_tag", "alg", "cert" },
+        .CNAME, .DNAME, .NS, .PTR => &[_]str{"dname"},
+        .DHCID => &[_]str{"data"},
+        .DLV, .DS, .CDS => &[_]str{ "keytag", "alg", "digest_type", "digest" },
+        .DNSKEY, .CDNSKEY => &[_]str{ "flags", "protocol", "alg", "public_key", "key_tag" },
+        .HINFO => &[_]str{ "cpu", "os" },
+        .IPSECKEY => &[_]str{ "precedence", "alg", "gateway", "public_key" },
+        .KEY => &[_]str{ "type", "xt", "name_type", "sig", "protocol", "alg", "public_key" },
+        .KX, .MX => &[_]str{ "preference", "exchange" },
+        .LOC => &[_]str{ "size", "horiz", "vert", "lat", "lon", "alt" },
+        .MB, .MG => &[_]str{"madname"},
+        .MINFO => &[_]str{ "rmailbx", "emailbx" },
+        .MR => &[_]str{"newname"},
+        .NAPTR => &[_]str{ "order", "preference", "flags", "services", "regexp", "replacement" },
+        .NSEC => &[_]str{ "next_dname", "types" },
+        .NSEC3 => &[_]str{ "hash_alg", "opt_out", "iterations", "salt", "hash", "types" },
+        .NSEC3PARAM => &[_]str{ "hash_alg", "flags", "iterations", "salt" },
+        .NXT => &[_]str{ "dname", "types" },
+        .RP => &[_]str{ "mbox", "txt" },
+        .RRSIG => &[_]str{ "type_covered", "alg", "labels", "original_ttl", "expiration", "inception", "key_tag", "signers_name", "signature" },
+        .RT => &[_]str{ "preference", "host" },
         .SOA => &[_]str{ "mname", "rname", "serial", "refresh", "retry", "expire", "minimum" },
-        else => @panic("TODO"),
+        .SPF => &[_]str{"spf"},
+        .SRV => &[_]str{ "priority", "weight", "port", "target" },
+        .SSHFP => &[_]str{ "alg", "fp_type", "fp" },
+        .TSIG => &[_]str{ "alg", "time", "fudge", "mac", "msgid", "err", "other" },
+        .TXT => &[_]str{"txt"},
+        else => {
+            const buf = ldns.buffer.new(32) catch @panic("oom");
+            const status = type_.appendStr(buf);
+            status.ok() catch @panic(std.mem.span(status.get_errorstr()));
+            std.debug.panic("unsupported record type: {s}", .{buf.data()});
+        },
     };
 }
 
@@ -20,6 +51,7 @@ pub fn emitRdf(rdf: *ldns.rdf, out: anytype, buf: *ldns.buffer) !void {
     switch (rdf.get_type()) {
         .INT32, .PERIOD => try out.emitNumber(rdf.int32()),
         .INT16 => try out.emitNumber(rdf.int16()),
+        .INT8 => try out.emitNumber(rdf.int8()),
         .DNAME => {
             try rdf.appendStr(buf).ok();
             const data = buf.data();
@@ -72,7 +104,7 @@ pub fn emitZone(zone: *ldns.zone, out: anytype, buf: *ldns.buffer) !void {
     const rr_list = zone.rrs();
     const rr_count = rr_list.rr_count();
 
-    const soa = if (zone.soa()) |ok| ok else @panic("no SOA record");
+    const soa = if (zone.soa()) |ok| ok else std.debug.panic("no SOA record found", .{});
 
     try out.beginObject();
 
@@ -98,10 +130,7 @@ pub fn emitZone(zone: *ldns.zone, out: anytype, buf: *ldns.buffer) !void {
 pub fn main() !void {
     const zone = switch (ldns.zone.new_frm_fp(stdin, null, 0, .IN)) {
         .ok => |z| z,
-        .err => |status| {
-            std.debug.print("{s}\n", .{status.get_errorstr()});
-            @panic("loading zone failed");
-        },
+        .err => |status| std.debug.panic("loading zone failed: {s}", .{status.get_errorstr()}),
     };
     defer zone.deep_free();
 

@@ -77,6 +77,9 @@ pub const rdf = opaque {
         return ldns_rdf2buffer_str(output, rd);
     }
 
+    extern fn ldns_rdf2native_int8(rd: *const rdf) u8;
+    pub const int8 = ldns_rdf2native_int8;
+
     extern fn ldns_rdf2native_int16(rd: *const rdf) u16;
     pub const int16 = ldns_rdf2native_int16;
 
