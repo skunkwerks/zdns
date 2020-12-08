@@ -18,12 +18,27 @@ pub const Oom = error{OutOfMemory};
 pub const Error = error{LdnsError};
 
 pub const zone = opaque {
-    extern fn ldns_zone_new_frm_fp(z: **zone, fp: *FILE, origin: ?*const rdf, ttl: u32, c: rr_class) status;
+    extern fn ldns_zone_new_frm_fp_l(z: **zone, fp: *FILE, origin: ?*const rdf, ttl: u32, c: rr_class, line_nr: *c_int) status;
 
-    pub fn new_frm_fp(fp: *FILE, origin: ?*const rdf, ttl: u32, c: rr_class) ErrUnion(*zone) {
+    pub const NewFrmFpDiagnostic = struct {
+        code: status,
+        line: c_int,
+    };
+
+    pub const NewFrmFpResult = union(enum) {
+        err: NewFrmFpDiagnostic,
+        ok: *zone,
+    };
+
+    pub fn new_frm_fp(fp: *FILE, origin: ?*const rdf, ttl: u32, c: rr_class) NewFrmFpResult {
         var z: *zone = undefined;
-        const stat = ldns_zone_new_frm_fp(&z, fp, origin, ttl, c);
-        return ErrUnion(*zone).init(z, stat);
+        var line: c_int = 0;
+        const stat = ldns_zone_new_frm_fp_l(&z, fp, origin, ttl, c, &line);
+        if (stat == .OK) {
+            return .{ .ok = z };
+        } else {
+            return .{ .err = .{ .code = stat, .line = line } };
+        }
     }
 
     extern fn ldns_zone_soa(z: *const zone) ?*rr;

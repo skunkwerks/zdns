@@ -56,7 +56,6 @@ pub fn emitRdf(rdf: *ldns.rdf, out: anytype, buf: *ldns.buffer) !void {
             try rdf.appendStr(buf).ok();
             const data = buf.data();
             // strip the trailing dot
-            // TODO this is probably wrong for relative dnames
             try out.emitString(data[0 .. data.len - 1]);
             buf.clear();
         },
@@ -130,7 +129,7 @@ pub fn emitZone(zone: *ldns.zone, out: anytype, buf: *ldns.buffer) !void {
 pub fn main() !void {
     const zone = switch (ldns.zone.new_frm_fp(stdin, null, 0, .IN)) {
         .ok => |z| z,
-        .err => |status| std.debug.panic("loading zone failed: {s}", .{status.get_errorstr()}),
+        .err => |err| std.debug.panic("loading zone failed on line {}: {s}", .{ err.line, err.code.get_errorstr() }),
     };
     defer zone.deep_free();
 
