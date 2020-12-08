@@ -57,6 +57,13 @@ pub fn emitRdf(rdf: *ldns.rdf, out: anytype, buf: *ldns.buffer) !void {
             try out.emitString(data[0 .. data.len - 1]);
             buf.clear();
         },
+        .STR => {
+            try rdf.appendStr(buf).ok();
+            const data = buf.data();
+            // strip the quotes
+            try out.emitString(data[1 .. data.len - 1]);
+            buf.clear();
+        },
         else => {
             try rdf.appendStr(buf).ok();
             try out.emitString(buf.data());
