@@ -3,8 +3,6 @@ const c = std.c;
 const json = std.json;
 const ldns = @import("ldns.zig");
 
-extern var stdin: *c.FILE;
-
 pub fn rrFieldNames(type_: ldns.rr_type) []const []const u8 {
     const str = []const u8;
     return switch (type_) {
@@ -127,6 +125,8 @@ pub fn emitZone(zone: *ldns.zone, out: anytype, buf: *ldns.buffer) !void {
 }
 
 pub fn main() !void {
+    const stdin = if(c.fopen("/dev/stdin", "r")) |ok| ok else @panic("cannot open /dev/stdin");
+    defer _ = c.fclose(stdin);
     const zone = switch (ldns.zone.new_frm_fp(stdin, null, 0, .IN)) {
         .ok => |z| z,
         .err => |err| std.debug.panic("loading zone failed on line {}: {s}", .{ err.line, err.code.get_errorstr() }),
