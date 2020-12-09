@@ -1,11 +1,11 @@
-example.com.  3600  SOA  dns.example.com. hostmaster.example.com. (
+minimal.com.  3600  SOA  dns.minimal.com. hostmaster.minimal.com. (
                          1999022301   ; serial YYYYMMDDnn
                          86400        ; refresh (  24 hours)
                          7200         ; retry   (   2 hours)
                          3600000      ; expire  (1000 hours)
                          172800 )     ; minimum (   2 days)
 minimal.com.	3600	IN	A	    1.2.3.4
-minimal.com.	3600	IN	NS	    ns.example.net.
+minimal.com.	3600	IN	NS	    ns.minimal.net.
 minimal.com.	3600	IN	MX	    10 minimal.com.minimal.com.
 minimal.com.	3600	IN	AAAA	2001:6a8:0:1:210:4bff:fe4b:4c61
 www.minimal.com.	120	IN	CNAME	minimal.com.
