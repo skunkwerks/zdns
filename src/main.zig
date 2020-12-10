@@ -2,6 +2,7 @@ const std = @import("std");
 const c = std.c;
 const json = std.json;
 const ldns = @import("ldns.zig");
+const testing = std.testing;
 
 pub fn rrFieldNames(type_: ldns.rr_type) []const []const u8 {
     const str = []const u8;
@@ -72,6 +73,37 @@ pub fn emitRdf(rdf: *ldns.rdf, out: anytype, buf: *ldns.buffer) !void {
     }
 }
 
+fn testRdf(type_: ldns.rdf_type, expected_out: []const u8, in: [*:0]const u8) !void {
+    var outBuf: [4096]u8 = undefined;
+    var bufStream = std.io.fixedBufferStream(&outBuf);
+    var out = json.writeStream(bufStream.writer(), 6);
+
+    const buf = try ldns.buffer.new(4096);
+    defer buf.free();
+
+    const rdf = try ldns.rdf.new_frm_str(type_, in);
+    defer rdf.deep_free();
+
+    try emitRdf(rdf, &out, buf);
+    testing.expectEqualStrings(expected_out, bufStream.getWritten());
+}
+
+test "emitRdf" {
+    try testRdf(.STR,
+        \\"m\\196\\133ka"
+    ,
+        \\m\196\133ka
+    );
+    try testRdf(.DNAME, "\"www.example.com\"", "www.example.com.");
+    try testRdf(.INT8, "243", "243");
+    try testRdf(.INT16, "5475", "5475");
+    try testRdf(.INT32, "7464567", "7464567");
+    try testRdf(.PERIOD, "7464567", "7464567");
+    try testRdf(.A, "\"192.168.1.1\"", "192.168.1.1");
+
+    testing.expectError(error.LdnsError, testRdf(.INT32, "", "bogus"));
+}
+
 pub fn emitRr(rr: *ldns.rr, out: anytype, buf: *ldns.buffer) !void {
     const type_ = rr.get_type();
 
@@ -104,11 +136,63 @@ pub fn emitRr(rr: *ldns.rr, out: anytype, buf: *ldns.buffer) !void {
     try out.endObject();
 }
 
+fn testRr(expected_out: []const u8, in: [*:0]const u8) !void {
+    var outBuf: [4096]u8 = undefined;
+    var bufStream = std.io.fixedBufferStream(&outBuf);
+    var out = json.writeStream(bufStream.writer(), 6);
+
+    const buf = try ldns.buffer.new(4096);
+    defer buf.free();
+
+    const rr = switch (ldns.rr.new_frm_str(in, 0, null, null)) {
+        .ok => |row| row,
+        .err => |stat| return error.LdnsError,
+    };
+    defer rr.free();
+
+    try emitRr(rr, &out, buf);
+    testing.expectEqualStrings(expected_out, bufStream.getWritten());
+}
+
+test "emitRr" {
+    try testRr(
+        \\{
+        \\ "name": "minimal.com",
+        \\ "type": "SOA",
+        \\ "ttl": 3600,
+        \\ "data": {
+        \\  "mname": "ns.example.net",
+        \\  "rname": "admin.minimal.com",
+        \\  "serial": 2013022001,
+        \\  "refresh": 86400,
+        \\  "retry": 7200,
+        \\  "expire": 3600,
+        \\  "minimum": 3600
+        \\ }
+        \\}
+    ,
+        \\minimal.com.	3600	IN	SOA	    ns.example.net. admin.minimal.com. 2013022001 86400 7200 3600 3600
+    );
+    try testRr(
+        \\{
+        \\ "name": "minimal.com",
+        \\ "type": "AAAA",
+        \\ "ttl": 3600,
+        \\ "data": {
+        \\  "ip": "2001:6a8:0:1:210:4bff:fe4b:4c61"
+        \\ }
+        \\}
+    ,
+        \\minimal.com.	3600	IN	AAAA	2001:6a8:0:1:210:4bff:fe4b:4c61
+    );
+    testing.expectError(error.LdnsError, testRr("", "bogus"));
+}
+
 pub fn emitZone(zone: *ldns.zone, out: anytype, buf: *ldns.buffer) !void {
     const rr_list = zone.rrs();
     const rr_count = rr_list.rr_count();
 
-    const soa = if (zone.soa()) |ok| ok else std.debug.panic("no SOA record found", .{});
+    const soa = if (zone.soa()) |ok| ok else fatal("no SOA record found\n", .{});
 
     try out.beginObject();
 
@@ -131,12 +215,25 @@ pub fn emitZone(zone: *ldns.zone, out: anytype, buf: *ldns.buffer) !void {
     try out.endObject();
 }
 
+pub fn fatal(comptime fmt: []const u8, args: anytype) noreturn {
+    std.debug.print(fmt, args);
+    std.os.exit(1);
+}
+
 pub fn main() !void {
-    const stdin = if(c.fopen("/dev/stdin", "r")) |ok| ok else @panic("cannot open /dev/stdin");
+    const args = try std.process.argsAlloc(std.heap.c_allocator);
+    defer std.process.argsFree(std.heap.c_allocator, args);
+
+    if (args.len > 2) fatal("Usage: zdns [file]\n", .{});
+
+    const file = if (args.len == 2) args[1] else "/dev/stdin";
+
+    const stdin = if (c.fopen(file, "r")) |ok| ok else fatal("Could not open {s}\n", .{file});
     defer _ = c.fclose(stdin);
+
     const zone = switch (ldns.zone.new_frm_fp(stdin, null, 0, .IN)) {
         .ok => |z| z,
-        .err => |err| std.debug.panic("loading zone failed on line {}: {s}", .{ err.line, err.code.get_errorstr() }),
+        .err => |err| fatal("loading zone failed on line {}: {s}", .{ err.line, err.code.get_errorstr() }),
     };
     defer zone.deep_free();
 

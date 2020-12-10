@@ -18,7 +18,7 @@ pub const Oom = error{OutOfMemory};
 pub const Error = error{LdnsError};
 
 pub const zone = opaque {
-    extern fn ldns_zone_new_frm_fp_l(z: **zone, fp: *FILE, origin: ?*const rdf, ttl: u32, c: rr_class, line_nr: *c_int) status;
+    extern fn ldns_zone_new_frm_fp_l(z: ?**zone, fp: *FILE, origin: ?*const rdf, ttl: u32, c: rr_class, line_nr: *c_int) status;
 
     pub const NewFrmFpDiagnostic = struct {
         code: status,
@@ -69,6 +69,16 @@ pub const rr = opaque {
     pub fn rdf(row: *const rr, nr: usize) *rdf {
         return row.ldns_rr_rdf(nr).?; // null on out of bounds
     }
+
+    extern fn ldns_rr_new_frm_str(n: ?**rr, str: [*:0]const u8, default_ttl: u32, origin: ?*const rdf, prev: ?*?*rdf) status;
+    pub fn new_frm_str(str: [*:0]const u8, default_ttl: u32, origin: ?*const rdf, prev: ?*?*rdf) ErrUnion(*rr){
+        var row: *rr = undefined;
+        const stat = ldns_rr_new_frm_str(&row, str, default_ttl, origin, null);
+        return ErrUnion(*rr).init(row, stat);
+    }
+
+    extern fn ldns_rr_free(row: *rr) void;
+    pub const free = ldns_rr_free;
 };
 
 pub const rr_list = opaque {
@@ -100,6 +110,14 @@ pub const rdf = opaque {
 
     extern fn ldns_rdf2native_int32(rd: *const rdf) u32;
     pub const int32 = ldns_rdf2native_int32;
+
+    extern fn ldns_rdf_new_frm_str(type_: rdf_type, str: [*:0]const u8) ?*rdf;
+    pub fn new_frm_str(type_: rdf_type, str: [*:0]const u8) !*rdf {
+        return if (ldns_rdf_new_frm_str(type_, str)) |ok| ok else error.LdnsError;
+    }
+
+    extern fn ldns_rdf_deep_free(rd: *rdf) void;
+    pub const deep_free = ldns_rdf_deep_free;
 };
 
 pub const buffer = opaque {
