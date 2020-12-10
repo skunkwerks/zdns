@@ -1,0 +1,21 @@
+example.org.	86400	IN	SOA	a.ns.example.org. hostmaster.example.org. 2011030200 1800 900 604800 86400
+example.org.	86400	IN	NS	a.ns.example.org.
+data.a.b.c.example.org.	3600	IN	A	1.6.8.8
+cname.example.org.	3600	IN	CNAME	www.example.org.
+dname.example.org.	3600	IN	TXT	"explanationforalias"
+dname.example.org.	3600	IN	DNAME	destination.to.the.example.com.
+mx.example.org.	3600	IN	A	1.5.8.9
+a.ns.example.org.	3600	IN	A	1.2.3.53
+a.ns.example.org.	3600	IN	A	1.2.3.54
+a.ns.example.org.	3600	IN	AAAA	1::53
+sub.example.org.	3600	IN	NS	ns.sub.example.org.
+sub.example.org.	3600	IN	NS	ns2.sub.example.org.
+ns.sub.example.org.	3600	IN	A	2.2.2.2
+ns2.sub.example.org.	3600	IN	A	2.2.2.3
+wc.example.org.	36800	IN	A	1.2.3.56
+*.wc.example.org.	3600	IN	A	6.7.6.7
+*.wc.example.org.	3600	IN	MX	10 mx.example.org.
+exist.wc.example.org.	3600	IN	A	1.2.3.9
+wcadd.example.org.	3600	IN	MX	10 mail.wc.example.org.
+www.example.org.	3600	IN	A	1.5.8.8
+www.example.org.	3600	IN	AAAA	1::3

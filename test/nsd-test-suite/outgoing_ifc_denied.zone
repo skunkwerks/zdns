@@ -1,0 +1,3 @@
+.	3600	IN	SOA	vergon6.example.com. leela.example.com. 2009093001 3600 28800 1209600 3600
+nibbler.example.com.	3600	IN	NS	ns0.vergon6.example.com.
+nibbler.example.com.	3600	IN	NS	ns1.vergon6.example.com.

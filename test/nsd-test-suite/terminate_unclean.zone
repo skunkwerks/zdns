@@ -1,0 +1,4 @@
+.	3600	IN	SOA	ns.com.com. hostmaster. 2011071300 1800 900 604800 86400
+.	3600	IN	A	192.0.2.1
+.	3600	IN	NS	ns.foo.com.
+.	3600	IN	NS	ns2.foo.com.

@@ -1,0 +1,6 @@
+example.net.	345600	IN	SOA	nibbler.example.net. leela.example.net. 1 300 300 300 300
+sub.example.net.	345600	IN	NS	ns1.sub.example.net.
+sub.example.net.	345600	IN	NS	ns2.sub.example.net.
+ns1.sub.example.net.	345600	IN	A	1.2.3.5
+ns2.sub.example.net.	345600	IN	A	1.2.3.6
+www.example.net.	345600	IN	A	1.2.3.4

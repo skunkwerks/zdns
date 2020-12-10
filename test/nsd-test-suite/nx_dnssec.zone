@@ -1,0 +1,11 @@
+miek.nl.	345600	IN	SOA	open.nlnetlabs.nl. miekg.atoom.net. 2005061300 14400 3600 604800 86400
+miek.nl.	345600	IN	A	80.127.17.126
+miek.nl.	345600	IN	NS	open.nlnetlabs.nl.
+miek.nl.	345600	IN	NS	omval.tednet.nl.
+miek.nl.	345600	IN	NS	elektron.atoom.net.
+miek.nl.	345600	IN	MX	20 sol.nlnetlabs.nl.
+miek.nl.	345600	IN	MX	20 mail.atoom.net.
+a.miek.nl.	345600	IN	A	80.127.17.126
+localhost.miek.nl.	345600	IN	A	127.0.0.1
+text.miek.nl.	345600	IN	TXT	"Hallo, ik ben Miek, wie gets mit dir?"
+www.miek.nl.	345600	IN	CNAME	a.miek.nl.

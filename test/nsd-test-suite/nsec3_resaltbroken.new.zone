@@ -1,0 +1,15 @@
+example.net.	345600	IN	SOA	nibbler.example.net. leela.example.net. 2 3 4 3000 5
+example.net.	345600	IN	NS	ns.deg1.example.net.
+*.example.net.	345600	IN	A	10.1.2.4
+deg1.example.net.	345600	IN	NS	ns.deg1.example.net.
+ns.deg1.example.net.	345600	IN	A	10.1.2.3
+deg2.example.net.	345600	IN	NS	ns.deg2.example.net.
+ns.deg2.example.net.	345600	IN	A	10.1.2.3
+deg3.example.net.	345600	IN	NS	ns.deg3.example.net.
+ns.deg3.example.net.	345600	IN	A	10.1.2.3
+deg4.example.net.	345600	IN	NS	ns.deg4.example.net.
+ns.deg4.example.net.	345600	IN	A	10.1.2.3
+deg5.example.net.	345600	IN	NS	ns.deg5.example.net.
+ns.deg5.example.net.	345600	IN	A	10.1.2.3
+deg6.example.net.	345600	IN	NS	ns.deg6.example.net.
+ns.deg6.example.net.	345600	IN	A	10.1.2.3

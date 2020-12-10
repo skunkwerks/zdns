@@ -1,0 +1,86 @@
+miek.nl.	14400	IN	SOA	open.nlnetlabs.nl. miekg.atoom.net. 2005061300 14400 3600 604800 86400
+miek.nl.	14400	IN	A	80.127.17.126
+miek.nl.	14400	IN	NS	open.nlnetlabs.nl.
+miek.nl.	14400	IN	NS	omval.tednet.nl.
+miek.nl.	14400	IN	NS	elektron.atoom.net.
+miek.nl.	14400	IN	MX	20 mx1.miek.nl.
+miek.nl.	14400	IN	MX	20 mx2.miek.nl.
+miek.nl.	14400	IN	MX	20 mx3.miek.nl.
+miek.nl.	14400	IN	MX	20 mx4.miek.nl.
+miek.nl.	14400	IN	MX	20 mx5.miek.nl.
+miek.nl.	14400	IN	MX	20 mx6.miek.nl.
+miek.nl.	14400	IN	MX	20 mx7.miek.nl.
+miek.nl.	14400	IN	MX	20 mx8.miek.nl.
+miek.nl.	14400	IN	MX	20 mx9.miek.nl.
+miek.nl.	14400	IN	MX	20 mx10.miek.nl.
+miek.nl.	14400	IN	MX	20 mx11.miek.nl.
+miek.nl.	14400	IN	MX	20 mx12.miek.nl.
+miek.nl.	14400	IN	MX	20 mx13.miek.nl.
+miek.nl.	14400	IN	MX	20 mx14.miek.nl.
+miek.nl.	14400	IN	MX	20 mx15.miek.nl.
+miek.nl.	14400	IN	MX	20 mx15.miek.nl.
+miek.nl.	14400	IN	MX	20 mx16.miek.nl.
+miek.nl.	14400	IN	MX	20 mx17.miek.nl.
+miek.nl.	14400	IN	MX	20 mx18.miek.nl.
+miek.nl.	14400	IN	MX	20 mx19.miek.nl.
+miek.nl.	14400	IN	MX	20 mx20.miek.nl.
+miek.nl.	14400	IN	MX	20 mx21.miek.nl.
+miek.nl.	14400	IN	MX	20 mx22.miek.nl.
+miek.nl.	14400	IN	MX	20 mx23.miek.nl.
+miek.nl.	14400	IN	MX	20 mx24.miek.nl.
+miek.nl.	14400	IN	MX	20 mx25.miek.nl.
+a.miek.nl.	14400	IN	A	80.127.17.126
+localhost.miek.nl.	14400	IN	A	127.0.0.1
+mx1.miek.nl.	14400	IN	A	127.0.0.1
+mx1.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx10.miek.nl.	14400	IN	A	127.0.0.1
+mx10.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx11.miek.nl.	14400	IN	A	127.0.0.1
+mx11.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx12.miek.nl.	14400	IN	A	127.0.0.1
+mx12.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx13.miek.nl.	14400	IN	A	127.0.0.1
+mx13.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx14.miek.nl.	14400	IN	A	127.0.0.1
+mx14.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx15.miek.nl.	14400	IN	A	127.0.0.1
+mx15.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx16.miek.nl.	14400	IN	A	127.0.0.1
+mx16.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx17.miek.nl.	14400	IN	A	127.0.0.1
+mx17.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx18.miek.nl.	14400	IN	A	127.0.0.1
+mx18.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx19.miek.nl.	14400	IN	A	127.0.0.1
+mx19.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx2.miek.nl.	14400	IN	A	127.0.0.1
+mx2.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx20.miek.nl.	14400	IN	A	127.0.0.1
+mx20.miek.nl.	14400	IN	A	127.0.0.1
+mx20.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx20.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx21.miek.nl.	14400	IN	A	127.0.0.1
+mx21.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx22.miek.nl.	14400	IN	A	127.0.0.1
+mx22.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx23.miek.nl.	14400	IN	A	127.0.0.1
+mx23.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx24.miek.nl.	14400	IN	A	127.0.0.1
+mx24.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx25.miek.nl.	14400	IN	A	127.0.0.1
+mx25.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx3.miek.nl.	14400	IN	A	127.0.0.1
+mx3.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx4.miek.nl.	14400	IN	A	127.0.0.1
+mx4.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx5.miek.nl.	14400	IN	A	127.0.0.1
+mx5.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx6.miek.nl.	14400	IN	A	127.0.0.1
+mx6.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx7.miek.nl.	14400	IN	A	127.0.0.1
+mx7.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx8.miek.nl.	14400	IN	A	127.0.0.1
+mx8.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+mx9.miek.nl.	14400	IN	A	127.0.0.1
+mx9.miek.nl.	14400	IN	AAAA	::ffff:127.0.0.1
+www.miek.nl.	14400	IN	CNAME	a.miek.nl.

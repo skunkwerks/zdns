@@ -1,0 +1,2 @@
+example.net.	345600	IN	SOA	nibbler.example.net. leela.example.net. 1 1 1 0 300
+www.example.net.	345600	IN	A	1.2.3.4

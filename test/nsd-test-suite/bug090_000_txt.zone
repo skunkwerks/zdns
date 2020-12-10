@@ -1,0 +1,7 @@
+text-test.nl.	345600	IN	SOA	open.nlnetlabs.nl. miekg.atoom.net. 2005061300 14400 3600 604800 86400
+text-test.nl.	345600	IN	NS	open.nlnetlabs.nl.
+text-test.nl.	345600	IN	MX	20 sol.nlnetlabs.nl.
+text-test.nl.	345600	IN	MX	20 mail.atoom.net.
+a.text-test.nl.	345600	IN	A	80.127.17.126
+txt-test1.text-test.nl.	345600	IN	TXT	"hallo ik ben Miek\000 Gieben"
+www.text-test.nl.	345600	IN	CNAME	a.text-test.nl.

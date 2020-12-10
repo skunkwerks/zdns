@@ -1,0 +1,5 @@
+example.net.	3600	IN	SOA	hostmaster.example.net. ns.example.net. 2020011301 3600 28800 2419200 3600
+example.net.	3600	IN	NS	ns.example.net.
+example.net.	3600	IN	MX	10 mail.example.net.
+mail.example.net.	3600	IN	A	172.0.0.1
+ns1.example.net.	3600	IN	A	127.0.0.1
