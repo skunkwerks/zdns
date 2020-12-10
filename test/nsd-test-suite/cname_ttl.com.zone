@@ -1,0 +1,4 @@
+example.com.	345600	IN	SOA	nibbler.example.net. leela.example.net. 1 3 4 3000 5
+example.com.	345600	IN	NS	ns1.example.com.
+hostname.example.com.	345600	IN	A	1.2.3.4
+www.example.com.	345600	IN	CNAME	hostname.example.com.

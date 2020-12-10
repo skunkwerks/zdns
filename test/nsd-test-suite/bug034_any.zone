@@ -1,0 +1,6 @@
+example.nl.	345600	IN	SOA	open.nlnetlabs.nl. miekg.atoom.net. 2005061300 14400 3600 604800 86400
+example.nl.	345600	IN	NS	open.nlnetlabs.nl.
+example.nl.	345600	IN	MX	20 sol.nlnetlabs.nl.
+example.nl.	345600	IN	MX	20 mail.atoom.net.
+a.example.nl.	345600	IN	A	80.127.17.126
+www.example.nl.	345600	IN	CNAME	a.example.nl.

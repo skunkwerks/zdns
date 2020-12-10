@@ -1,0 +1,11 @@
+spf-test.nl.	345600	IN	SOA	open.nlnetlabs.nl. miekg.atoom.net. 2005061300 14400 3600 604800 86400
+spf-test.nl.	345600	IN	NS	open.nlnetlabs.nl.
+spf-test.nl.	345600	IN	MX	20 sol.nlnetlabs.nl.
+spf-test.nl.	345600	IN	MX	20 mail.atoom.net.
+spf-test.nl.	345600	IN	SPF	"v=spf1 a -all"
+spf-test.nl.	345600	IN	SPF	"v=spf1 +mx a:colo.example.com/28 -all"
+a.spf-test.nl.	345600	IN	A	80.127.17.126
+spf-test1.spf-test.nl.	345600	IN	SPF	"v=spf1 +mx a:colo.example.com/28 -all"
+spf-test2.spf-test.nl.	345600	IN	SPF	"v=spf1 a -all"
+txt-test1.spf-test.nl.	345600	IN	TXT	"v=spf1 +mx a:colo.example.com/28 -all"
+www.spf-test.nl.	345600	IN	CNAME	a.spf-test.nl.

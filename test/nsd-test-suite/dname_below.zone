@@ -1,0 +1,6 @@
+.	3600	IN	SOA	mainserv.example.net. root.example. 2003070707 3600 28800 2419200 3600
+example.	3600	IN	NS	ns0.xname.org.
+example.	3600	IN	NS	ns1.xname.org.
+x.example.	3600	IN	DNAME	y.example.
+a.b.x.example.	3600	IN	A	10.0.0.12
+a.y.example.	3600	IN	A	10.0.0.10

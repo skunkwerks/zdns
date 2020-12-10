@@ -1,0 +1,6 @@
+example.nl.	3600	IN	SOA	bla.example.nl. root.example.nl. 2003070707 3600 28800 2419200 3600
+example.nl.	3600	IN	NS	ns0.xname.org.
+example.nl.	3600	IN	NS	ns1.xname.org.
+localhost.example.nl.	3600	IN	A	127.0.0.1
+\128\129\130.example.nl.	3600	IN	A	127.0.0.2
+\200\201\202\203\204\205\206\207\208\209\210.example.nl.	3600	IN	A	127.0.0.2

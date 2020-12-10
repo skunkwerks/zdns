@@ -1,0 +1,6 @@
+miek.nl.	345600	IN	SOA	open.nlnetlabs.nl. miekg.atoom.net. 2005061300 14400 3600 604800 86400
+miek.nl.	345600	IN	NS	open.nlnetlabs.nl.
+miek.nl.	345600	IN	AAAA	::ffff:80.127.17.126
+a.miek.nl.	345600	IN	AAAA	::ffff:80.127.17.126
+b.miek.nl.	345600	IN	AAAA	::ffff:80.127.17.126
+localhost.miek.nl.	345600	IN	AAAA	::ffff:127.0.0.1

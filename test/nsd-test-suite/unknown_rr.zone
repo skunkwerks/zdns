@@ -1,0 +1,15 @@
+miek.nl.	3600	IN	SOA	elektron.atoom.net. miekg.atoom.net. 2005060700 21600 7200 604800 3600
+miek.nl.	3600	IN	NS	elektron.atoom.net.
+miek.nl.	3600	IN	NULL	\# 1 aa
+miek.nl.	3600	IN	TXT	"normal type here"
+miek.nl.	3600	IN	TYPE200	\# 7 aabbccddeeff11
+miek.nl.	3600	IN	TYPE201	\# 7 aabbccddeeff11
+miek.nl.	3600	IN	TYPE202	\# 0
+miek.nl.	3600	IN	TYPE202	\# 7 aabbccddeeff11
+miek.nl.	3600	IN	TYPE5050	\# 1 aa
+miek.nl.	3600	IN	TYPE5051	\# 2 aabb
+miek.nl.	3600	IN	TYPE5052	\# 3 aabbcc
+miek.nl.	3600	IN	TYPE5053	\# 4 aabbccdd
+miek.nl.	3600	IN	TYPE5054	\# 5 aabbccddee
+miek.nl.	3600	IN	TYPE5055	\# 6 aabbccddeeff
+miek.nl.	3600	IN	TYPE5056	\# 7 aabbccddeeff11

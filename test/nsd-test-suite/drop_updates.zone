@@ -1,0 +1,8 @@
+example.net.	86400	IN	SOA	ns.example.net. hostmaster.example.net. 1 3 4 3000 5
+example.net.	86400	IN	NS	ns.example.net.
+example.net.	86400	IN	MX	10 mx.example.net.
+mx.example.net.	86400	IN	A	1.2.3.4
+mx.example.net.	86400	IN	AAAA	::1
+ns.example.net.	86400	IN	A	1.2.3.4
+ns.example.net.	86400	IN	AAAA	::1
+www.example.net.	86400	IN	A	1.2.3.4

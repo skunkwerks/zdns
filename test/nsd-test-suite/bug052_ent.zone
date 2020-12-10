@@ -1,0 +1,3 @@
+miek.nl.	345600	IN	SOA	open.nlnetlabs.nl. miekg.atoom.net. 2005061300 14400 3600 604800 86400
+miek.nl.	345600	IN	NS	open.nlnetlabs.nl.
+a.b.miek.nl.	345600	IN	TXT	"b is an empty non terminal. a.b has a text record"

@@ -1,0 +1,15 @@
+.	3600	IN	SOA	ns1.example.com. hostmaster.example.com. 2006120901 43200 7200 2419200 3600
+.	172800	IN	NS	ns1.example.com.
+.	172800	IN	NS	ns2.example.com.
+.	172800	IN	CNAME	www.example.com.
+.	172800	IN	MX	10 mx1.example.com.
+.	172800	IN	MX	20 mx2.example.com.
+mx1.example.com.	172800	IN	A	1.2.3.7
+mx2.example.com.	172800	IN	A	1.2.3.8
+mx2.example.com.	172800	IN	CNAME	www.example.com.
+ns1.example.com.	172800	IN	A	1.2.3.5
+ns2.example.com.	172800	IN	A	1.2.3.6
+order.example.com.	172800	IN	A	1.2.3.4
+order.example.com.	172800	IN	CNAME	www.bla.com.
+www.example.com.	172800	IN	CNAME	x.example.com.
+x.example.com.	172800	IN	A	1.2.3.4
