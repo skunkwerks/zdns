@@ -113,7 +113,7 @@ pub const rdf = opaque {
 
     extern fn ldns_rdf_new_frm_str(type_: rdf_type, str: [*:0]const u8) ?*rdf;
     pub fn new_frm_str(type_: rdf_type, str: [*:0]const u8) !*rdf {
-        return if (ldns_rdf_new_frm_str(type_, str)) |ok| ok else error.LdnsError;
+        return ldns_rdf_new_frm_str(type_, str) orelse error.LdnsError;
     }
 
     extern fn ldns_rdf_deep_free(rd: *rdf) void;
@@ -124,7 +124,7 @@ pub const buffer = opaque {
     extern fn ldns_buffer_new(capacity: usize) ?*buffer;
 
     pub fn new(capacity: usize) Oom!*buffer {
-        return if (ldns_buffer_new(capacity)) |ok| ok else error.OutOfMemory;
+        return ldns_buffer_new(capacity) orelse error.OutOfMemory;
     }
 
     extern fn ldns_buffer_free(buffer: *buffer) void;

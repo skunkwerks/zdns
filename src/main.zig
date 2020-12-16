@@ -192,7 +192,7 @@ pub fn emitZone(zone: *ldns.zone, out: anytype, buf: *ldns.buffer) !void {
     const rr_list = zone.rrs();
     const rr_count = rr_list.rr_count();
 
-    const soa = if (zone.soa()) |ok| ok else fatal("no SOA record found\n", .{});
+    const soa = zone.soa() orelse fatal("no SOA record found\n", .{});
 
     try out.beginObject();
 
@@ -228,7 +228,7 @@ pub fn main() !void {
 
     const file = if (args.len == 2) args[1] else "/dev/stdin";
 
-    const stdin = if (c.fopen(file, "r")) |ok| ok else fatal("Could not open {s}\n", .{file});
+    const stdin = c.fopen(file, "r") orelse fatal("Could not open {s}\n", .{file});
     defer _ = c.fclose(stdin);
 
     const zone = switch (ldns.zone.new_frm_fp(stdin, null, 0, .IN)) {
