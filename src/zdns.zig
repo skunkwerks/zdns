@@ -15,7 +15,6 @@ pub fn ErrUnion(comptime t: type) type {
 }
 
 pub const Oom = error{OutOfMemory};
-pub const Error = error{LdnsError};
 
 pub const zone = opaque {
     extern fn ldns_zone_new_frm_fp_l(z: ?**zone, fp: *FILE, origin: ?*const rdf, ttl: u32, c: rr_class, line_nr: *c_int) status;
@@ -112,9 +111,7 @@ pub const rdf = opaque {
     pub const int32 = ldns_rdf2native_int32;
 
     extern fn ldns_rdf_new_frm_str(type_: rdf_type, str: [*:0]const u8) ?*rdf;
-    pub fn new_frm_str(type_: rdf_type, str: [*:0]const u8) !*rdf {
-        return ldns_rdf_new_frm_str(type_, str) orelse error.LdnsError;
-    }
+    pub const new_frm_str = ldns_rdf_new_frm_str;
 
     extern fn ldns_rdf_deep_free(rd: *rdf) void;
     pub const deep_free = ldns_rdf_deep_free;
@@ -437,9 +434,5 @@ pub const status = extern enum(c_int) {
 
     pub fn get_errorstr(err: status) [*:0]const u8 {
         return ldns_get_errorstr_by_id(err).?; // null on invalid
-    }
-
-    pub fn ok(err: status) Error!void {
-        if (err != .OK) return error.LdnsError;
     }
 };
