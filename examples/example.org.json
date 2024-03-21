@@ -1,0 +1,288 @@
+{
+  "ok": {
+    "name": "example.org",
+    "records": [
+      {
+        "data": {
+          "expire": 3600000,
+          "minimum": 1750,
+          "mname": "ns.cabal5.net",
+          "refresh": 86400,
+          "retry": 7200,
+          "rname": "root.example.org",
+          "serial": 1601227221
+        },
+        "name": "example.org",
+        "ttl": 86400,
+        "type": "SOA"
+      },
+      {
+        "data": {
+          "port": 8448,
+          "priority": 10,
+          "target": "matrix.example.org",
+          "weight": 0
+        },
+        "name": "_matrix._tcp.matrix.example.org",
+        "ttl": 86400,
+        "type": "SRV"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 5,
+          "original_ttl": 86400,
+          "signature": "cRaaMvYgkmPSFc2ntH5TgrJS9/ilARmWRW2mJVGk2rnhCiApAzsWu2isZ74HCP7y2uw1Q2rwHrpMlXHABtpmV2YiR8W3wKPw39yh6qxCMtfLGKBDMCaxPq5+R10tWZ0uOCkWMrIDbtXp1WQurRKZO+yQ0giH8Qt2GXQTsDjsFa8=",
+          "signers_name": "example.org",
+          "type_covered": "SRV"
+        },
+        "name": "_matrix._tcp.matrix.example.org",
+        "ttl": 86400,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "txt": "4F6naf1qw3TkCefIzK4zPChR7i3XBZlAP-KLrWPH07g"
+        },
+        "name": "acme-challenges.example.org",
+        "ttl": 300,
+        "type": "TXT"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 3,
+          "original_ttl": 300,
+          "signature": "tQN0N3yTMpudYqgqZ6P27TMFLZwYTZyX3MCVp1SejHcPCz+heSvp/1IW7qTRKsoBy2spfePI9+D8ofpZ+16x1UCw5g7XdOQvfBRgWflTBg9/QYFTtRSnMuzrkHMGQM7AWec8PZ3JCKQ38TZqawbCRIcztSpfN6LDWcjynbiZy8c=",
+          "signers_name": "example.org",
+          "type_covered": "TXT"
+        },
+        "name": "acme-challenges.example.org",
+        "ttl": 300,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "dname": "bgp.example.org"
+        },
+        "name": "api.example.org",
+        "ttl": 86400,
+        "type": "CNAME"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 3,
+          "original_ttl": 86400,
+          "signature": "mkaUMIruv134/vBwo7BloCcKI4LVjK+hG5rcvkbe8m3DYV3V58PNwgsUgZeJCuTzHfduUY1oevOXFP4M6fAUDMkTozvdvYwkH+BroXLA0pTKcTC5PeF0y2+xjJ5oO4BqAp53cabj6kLZATUBiAf3w/mET+Mg8mA+pgwp9/p3oLg=",
+          "signers_name": "example.org",
+          "type_covered": "CNAME"
+        },
+        "name": "api.example.org",
+        "ttl": 86400,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "ip": "fca2:927d:4dba:7b39:a6ee::10"
+        },
+        "name": "beta.zt.example.org",
+        "ttl": 86400,
+        "type": "AAAA"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 4,
+          "original_ttl": 86400,
+          "signature": "Z4jNURF6PbLE6b5/oBqUAaViE3/jtUMGUT2JmH83UXvJfxe8YBzJjkH1C2jR/nLQg3opcTixAsC5CfzYK33ydZl6JvZlW8laYDC1xeEoI9a0yZgwNQXM3IzFkeQxV6vhq4RdC2bcqu+dkGLcYD7qC3nyrvUCoKZnvHCbj3JgxhM=",
+          "signers_name": "example.org",
+          "type_covered": "AAAA"
+        },
+        "name": "beta.zt.example.org",
+        "ttl": 86400,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "ip": "147.75.194.20"
+        },
+        "name": "bgp.example.org",
+        "ttl": 86400,
+        "type": "A"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 3,
+          "original_ttl": 86400,
+          "signature": "kLvwMnuApYux5oLkFjtibSgkdlXOpRuiNbRZ2/RjEKuLhhkZPxTXzUPcQeJINNZD9hLyz0mDU8uaPSVgbdOQL4dk+96uO81Ts1fi8vLUqnMYf4FDiuHCvf0DecaJ+D0ExWGhNOUZLu/Y+slvLipsda4YO6vwhyByo5oKCU6B0E4=",
+          "signers_name": "example.org",
+          "type_covered": "A"
+        },
+        "name": "bgp.example.org",
+        "ttl": 86400,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "dname": "ns.cabal5.net"
+        },
+        "name": "example.org",
+        "ttl": 86400,
+        "type": "NS"
+      },
+      {
+        "data": {
+          "exchange": "in2-smtp.messagingengine.com",
+          "preference": 20
+        },
+        "name": "example.org",
+        "ttl": 86400,
+        "type": "MX"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 2,
+          "original_ttl": 3600,
+          "signature": "YX7YufMO/jMYiqJnA0TswsAupEUdcN7kNM4FwLk5x4fBCpUUDvFHuHPkSkjiE/jV27ZGYXBWiGcuv0FysE5guKL1mmz+SpPauzz6Z0rBTCpr10p81BQIrxRE2gTLdPQ/OL6YwhFepP16gm2wtkJYLWVuEP8mCxGTg5y9dGyevPc=",
+          "signers_name": "example.org",
+          "type_covered": "DNSKEY"
+        },
+        "name": "example.org",
+        "ttl": 3600,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 2,
+          "original_ttl": 86400,
+          "signature": "Zj3f07Ru8Nw2IYEPEH9diSMNbPfnvq5oRe256aY/I3ZQIxBrKO3t8PTgwmuF60kkk5rRGivWOgvCmn6/STFPPriqOJ1tox7HcAkQKsfvtxEk3FOTTxCpWjKyN7Wmy1R9Q8PnH3PyrIwFqUIWZNPUlRlaYHtFhpllTTSP9z55xQo=",
+          "signers_name": "example.org",
+          "type_covered": "NS"
+        },
+        "name": "example.org",
+        "ttl": 86400,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 2,
+          "original_ttl": 86400,
+          "signature": "0IMxK8fuKaW02nutMo6reBCsYe3MpN1UNhzL/FJiR5gTKRLbC3v3q9Rw3RSB815Til6V5UaNYCPa13m04TtCdMmyHbDotV/xm0pvTRNM/1ZvATKSsqp0z8GeC7h/gi4rocS+fwnqAysflAXqA99YjiExRV/3fF3wRGjTVh9NuuQ=",
+          "signers_name": "example.org",
+          "type_covered": "SOA"
+        },
+        "name": "example.org",
+        "ttl": 1750,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 2,
+          "original_ttl": 86400,
+          "signature": "rd4ZTYiOrRS8JRygSkECycnMpYbdUMSr2ebOICrBJbuc0nkFiJqems4cbN3PQzaaUiiO/jV9a1vk8aUoReT8RvPEnbimHEr0xCW7AvA7Mh3pkac1FEC0kr7HWQid0KDGXZiY5plRtpjyHcUOS3kDNhNYEPekaKJQ6zjJZwIvBt0=",
+          "signers_name": "example.org",
+          "type_covered": "MX"
+        },
+        "name": "example.org",
+        "ttl": 86400,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 2,
+          "original_ttl": 3600,
+          "signature": "uuySKw2/VEvWxHPVglzxNfCIsuo6W5Hfecf2ZPd+yQo4jHzdcTp01/AnqCYe8fsa8OnM5p0evvAFIV17LvvODuj8gv2u6F9PDBicr2gOAykrYsuz2cPinkK/QgDATl9sR6CvMr/29N2JLdtW9lwsTXVdwqMHAK7oAWHGSS8TL8Y=",
+          "signers_name": "example.org",
+          "type_covered": "CAA"
+        },
+        "name": "example.org",
+        "ttl": 3600,
+        "type": "RRSIG"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "flags": 256,
+          "protocol": 3,
+          "public_key": "AQO6oGXkgTFqC8B6PmkaZr+291qBNfUdCBXSPHh6IGzrG/FHbwKWfKqOT4Lvs9d0ONlRqI5lQ/sBEPQy1GuY6lHW5eCI9sL5OvJlJC+lVr2/mLwO6ECwb+Mumu3ciAULCTriKx1hiSMDufybauKdjMRLfR0Of+oEXZoYL8trFnM8UCHZxc/jrtmZVIeiC8d0eO4AmKbOSeijKSzxTgu8/wGQldCkoTml3u7Q1IJHpraxTwxiHQ9xmW3TpsLUGfWvlMcdAUL+OfGBG3oBcKeIawaKumNLuaKWTfmLLIplFQRjCgi8TWr+U/vGNMdOLGrMGjAGrTSAZ+BVp//GzL19pBuh"
+        },
+        "name": "example.org",
+        "ttl": 3600,
+        "type": "DNSKEY"
+      },
+      {
+        "data": {
+          "flags": 128,
+          "tag": "issue",
+          "value": "\"letsencrypt.org\""
+        },
+        "name": "example.org",
+        "ttl": 3600,
+        "type": "CAA"
+      },
+      {
+        "data": {
+          "alg": 4,
+          "fp": "45058233ea271b6ddb4a8533f371d951f211ff605c8a99207f2f1ecb98137f5a",
+          "fp_type": 2
+        },
+        "name": "f01.example.org",
+        "ttl": 86400,
+        "type": "SSHFP"
+      },
+      {
+        "data": {
+          "alg": "8",
+          "expiration": "20240201111111",
+          "inception": "20220201111111",
+          "key_tag": 60600,
+          "labels": 3,
+          "original_ttl": 86400,
+          "signature": "F4I+MPdgA5EuCY6jDILeTk32MS/id5fhVQUtb6tESTRXtEZo2Z0Kop/ZyocfA1iM6MNGVt3MLrwHyIPwzD0RMF+LQmHwTrT4YJgwcP7H0jZ/rBv/sNq9DuiAUg8565Tz4XKmE3lW/EBNiUaLxG0PuuAre7J9XztSNjAF9hK2cgU=",
+          "signers_name": "example.org",
+          "type_covered": "SSHFP"
+        },
+        "name": "f01.example.org",
+        "ttl": 86400,
+        "type": "RRSIG"
+      }
+    ]
+  }
+}
